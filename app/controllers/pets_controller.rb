@@ -32,7 +32,8 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do 
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:id]) 
+    binding.pry
     @pet.update(params[:pet])
     if !params[:owner][:name].empty?
       @pet.owner = Owner.new(name: params[:owner][:name])
